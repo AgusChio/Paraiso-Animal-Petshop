@@ -1,0 +1,802 @@
+* {
+    margin: 0;
+    padding: 0;    
+}
+
+body {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%; 
+    background-image: url(../Images/fondo.webp);
+    background-size: contain;
+}
+
+/* Navbar */
+main{
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 10%;
+}
+
+/* inicio logo navbar */
+.logo {
+    position: relative;
+    width: 4.5em;
+    height: 0;
+    z-index: 4;
+}
+.logo .wrapper {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    border-radius: 100%;
+    z-index: 1;
+    border-bottom: 2px solid #F5A09D;
+}
+.logo img {
+    width: 100%;
+    padding: 0.9em;
+    z-index: 3;
+}
+/* fin logo navbar */
+
+.navbar{
+    border-bottom: 2px #F5A09D solid;
+}
+.nav li{
+    font-family: 'Fjalla One', sans-serif !important;
+    font-weight: bold;
+}
+
+.ancor-nav{
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;
+    font-size: 18px !important;
+    color: black !important;
+}
+
+.ancor-nav:hover, .ancor-nav:focus {
+    background-size: 100% 2px 
+}
+/* fin navbar */
+
+
+/* Inicio Carrusel */
+.imagenes-Carrusel{
+    z-index: 2;
+    height: 70vh;
+    object-fit: cover;
+}
+
+.carousel-caption{
+    background-color: rgba(240, 255, 255, 0.099);
+    display: grid;
+    place-items: center;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 2px 2px 4px #000000;
+    font-weight: bold;
+}
+.carousel-caption>h5{
+    display: grid;
+    place-items: center;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 2px 2px 4px #000000;
+    font-weight: bold;
+}
+/* Fin Carrusel */
+
+/* Main */
+
+.title {
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+h2{
+    font-family: 'Poppins', sans-serif;
+}
+/* inicio estilo cartas productos*/
+.card-block {
+    font-size: 1em;
+    position: relative;
+    margin: 0;
+    padding: 1em;
+    border: none;
+    border-top: 1px solid rgba(34, 36, 38, .1);
+    box-shadow: none;
+}
+.card {
+    font-size: 1em;
+    overflow: hidden;
+    padding: 5;
+    border: none;
+    border-radius: .28571429rem;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    margin-top:20px;
+}
+.card-title{
+    font-weight: bold;
+}
+.img-carta{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.card-block>a{
+
+    font-weight: bold;
+    background-color:rgb(240,162,79);
+}
+/* fin estilo cartas productos */
+
+/* inicio estilo mapa de la pagina de inicio */
+.maps{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    margin-top: 5rem;
+    
+}
+.maps>h3{
+    margin: 2vh;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+iframe{
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 60vw;
+    height: 70vh;
+}
+/* fin estilo mapa */
+
+/* Inicio Footer */
+
+.LogosFooter{
+    width: 1rem;
+    height: 1rem;
+}
+.LogosFooter>img{
+    justify-items: center;
+}
+.botones{
+    border-radius: 40%;
+}
+.enlaces{
+    color: white !important;
+}
+footer{
+    font-family: 'Poppins', sans-serif;
+    margin-top: 3rem;
+}
+/* fin footer */
+
+/* Inicio Formulario */
+
+.contact_form{  
+    width: 480px; 
+    height: auto;
+    margin: 80px auto;
+    border-radius: 10px;  
+    padding-top: 30px;
+    padding-bottom: 20px;  
+    background-color: #fbfbfb; 
+    padding-left: 30px; 
+    box-shadow: #f35e59 3px 3px 3px 3px;
+}
+
+input{
+    background-color: #fbfbfb; 
+    width: 430px; 
+    height: 40px; 
+    border-radius: 5px;  
+    border-style: solid; 
+    border-width: 1px; 
+    border-color: #f27874; 
+    margin-top: 10px;  
+    padding-left: 10px;
+    margin-bottom: 20px; 
+}
+
+.mascotas-Contenedor{
+    display: table-column;
+}
+
+.input-Mascotas{
+    width: fit-content;
+    height: 20px; 
+}
+
+
+textarea{
+    background-color: #fbfbfb; 
+    width: 430px; 
+    height: 150px; 
+    border-radius: 5px;  
+    border-style: solid; 
+    border-width: 1px; 
+    border-color: #f27874; 
+    margin-top: 10px;  
+    padding-left: 10px;
+    margin-bottom: 20px; 
+    padding-top: 15px; 
+}
+
+label{
+    display: block; 
+    float: center;  
+}
+
+#enviar{
+    height: 50px; 
+    padding-left: 5px;
+    padding-right: 5px;   
+    margin-bottom: 20px; 
+    margin-top: 10px;   
+    text-transform: uppercase;
+    background-color: #fc7e7a; 
+    border-color: #c44641; 
+    border-style: solid; 
+    border-radius: 10px;  
+    width: 420px;   
+    cursor: pointer;
+}
+
+button p{
+    color: #fff; 
+}
+
+span{
+    color: #c44641; 
+}
+
+.aviso{
+    font-size: 13px;  
+    color: #0e0e0e;  
+}
+
+.formulario-titulo{
+    font-size: 39px; 
+    margin-right: 2rem;
+    text-align: center; 
+    padding-bottom: 20px; 
+    color: #f35e59;
+}
+
+h3{
+    font-size: 16px; 
+    padding-bottom: 30px;
+    color: #0e0e0e;   
+}
+
+p{
+    font-size: 14px; 
+    color: #0e0e0e; 
+}
+
+.enviar{
+    margin-top: 10px !important;
+}
+
+::-webkit-input-placeholder {
+    color: #a8a8a8;
+}
+
+::-webkit-textarea-placeholder {
+    color: #a8a8a8;
+}
+
+.formulario input:focus{
+    outline:0;
+    border: 1px solid #97d848;
+}
+
+.formulario textarea:focus{
+    outline:0;
+    border: 1px solid #97d848;
+}
+
+/* Fin Formulario */
+
+/*inicio estilo farmacia y juguetes */
+body {
+    min-height: 100vh;
+}
+#app {
+    min-height: 100vh;
+}
+
+/*inicio menu dropdown carrito*/
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    align-self: flex-end;
+}
+
+.dropdown-menu:before {
+    position: absolute;
+    top: -7px;
+    left: 9px;
+    display: inline-block;
+    content: '';
+}
+.dropdown-menu::after {
+    position: absolute;
+    top: -6px;
+    left: 10px;
+    content: '';
+}
+
+/* inicio estilo boton de carrito - tiene mediaquery */
+.carrito-position{
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    z-index: 2;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.finalizarCompra {
+    position: relative;
+    background-color: #F0A24F;
+    left: 65px;
+}
+.quitarElemento {
+    position: relative;
+    left: 65px;
+}
+.detalles-productos {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+.btn-carrito{    
+    font-family: 'Fjalla One', sans-serif !important;
+    font-size: 1.5rem;
+    border-radius: 3px;
+    height: 3rem;
+}
+/* fin estilo boton de carrito */
+
+/* estilo cards */
+.cards-producto {
+    width: 18rem;
+    padding: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 2rem;
+    height: 29rem;
+}
+
+.card-img-top{
+    object-fit: cover;
+    max-height: 50%;
+    border-radius: 20px;
+}
+
+/* estilo h1 */
+.titulo-tienda{
+    font-family: 'Fjalla One', sans-serif !important;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 2rem;
+    margin-right: 2rem;
+}
+/* boton naranja de "agregar a carrito" */
+.btn-tienda{
+    font-size: 1rem;
+    font-weight: bold;
+    background-color:rgb(240,162,79);
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+/* estilo searchbar y filtro */
+.search-bar{
+    margin-top: 4rem !important;
+}
+.search-bar, .search-filter{
+    margin: 1rem;
+    justify-content: center !important;
+    width: 70% !important;
+    align-self: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+/* estilo compra */
+
+.contenedor-compra {
+    padding: 60px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.canasta{
+    width: 60%;
+    border: 1px #c44641 solid;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 20%;
+    box-shadow: #f27874be 3px 3px 3px 3px;
+}
+
+.canasta-labels ul{
+    border-bottom: gray solid 1px;
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    padding-top: 10px;
+    margin-left: -10px;
+    padding-bottom: 10px;
+}
+
+.canasta-labels ul li{
+    display: inline;
+    text-align: center;
+    width: 15%;
+}
+
+.detalles-productos ul{
+    display: flex;
+    justify-content: flex-end;
+    justify-content: center;
+    justify-content: space-between;
+    margin-left: -20px;
+    margin-top: 10px;
+}
+
+.detalles-productos ul li{
+    display: inline;
+    text-align: center;
+    height: 10vh;
+    width: 15%;
+    align-content: center;
+
+}
+
+.cantidadProducto{
+    width: 50%;
+    height: 4vh;
+}
+
+.contenedor-remover{
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+}
+
+.boton-remover{
+    padding: 5px;
+    border: none;
+    background-color: #f27874;
+    color: white;
+}
+
+aside{
+    padding-left: 1.5rem;
+}
+
+.contenedor-aside{
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-top: 10px;
+    background-color: white;
+    border-radius: 10px;
+    border: #f35e59 2px solid;
+    box-shadow: #f27874aa 3px 3px 3px 3px;
+}
+
+.sumaTotal-Articulos{
+    font-size: 20px;
+    border-bottom: #a8a8a8 solid 1px;
+    padding-bottom: 5px;
+}
+
+.promo-Titulo{
+    padding-bottom: 5px;
+}
+
+.boton-checkout{
+    padding: 10px;
+    border: none;
+    color: white;
+    background-color: #f27874;
+    border-radius: 10px;
+}
+#checkboxes {
+    display: flex;
+    flex-direction: column;
+}
+.input-Mascotas {
+    position: relative;
+    top: 5px;
+}
+.btn-unidad {
+    background-color: #FCCCB1;
+}
+
+.modal-container {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.m {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: #fff;
+    width: 40%;
+    height: 50%;
+    text-align: center;
+    transition: transform 1s;
+    transform: translateY(0%);
+}
+.close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+.m-close {
+    transform: translateY(-200%);
+}
+.alertaFiltros {
+    text-align: center;
+    width: 70%;
+}
+
+/* MEDIAQUERRYS */
+@media screen and (min-width: 319px) and (max-width: 460px) {
+    
+    /* inicio responsive tienda mobile */
+    .search-bar{
+        margin-top: 5rem !important;
+    }
+    .titulo-tienda{
+        text-align: center !important;
+        right: 28% !important;
+        margin-left: 30px;
+    }
+    .carrito-position{
+        position: absolute;
+        top: 35% !important;
+        right: 30% !important;
+        z-index: 2;
+    }
+    footer, iframe{
+        width: 100%;
+    }
+    .ancor-nav{
+        font-size: 12px !important;
+    }
+    .imagenes-Carrusel{
+        height: 15em;
+    }
+    .contact_form{  
+        width:300px; 
+        height: auto;
+    }
+
+    textarea{
+        width: fit-content; 
+    }
+    input{
+        width: fit-content; 
+    }
+
+    #enviar{
+        width: 240px;
+    }
+
+ /* responsive fin compras */
+
+    .contenedor-compra {
+        padding: 10px;
+        padding-top: 30px;
+    }
+    .canasta{
+        width:140%;
+        height: fit-content;
+        margin-bottom: 20%;
+        font-size: 14px;
+    }
+    
+    .canasta-labels ul li{
+        margin-right: 19px;
+    }
+
+    .detalles-productos ul{
+        margin-right: 30px; 
+        margin-top: 10px;
+    }    
+    
+    .cantidadProducto{
+        width: 90%;
+        height: 6vh;
+    }
+
+    aside{
+        padding-left: 0rem;
+    }
+    
+    .contenedor-aside{
+        width: 100%;
+    }
+    
+    .summary-delivery-selection{
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 393px) and (max-width: 394px) {
+    .carrito-position{
+        position: absolute;
+        top: 18% !important;
+        right: 32% !important;
+        z-index: 2;
+    }
+    .ancor-nav{
+        font-size: 12px !important;
+    }
+}
+
+@media screen and (min-width: 360px) and (max-width: 414px) {
+    .carrito-position{
+        position: absolute;
+        top: 20% !important;
+        right: 32% !important;
+        z-index: 2;
+    }
+    .ancor-nav{
+        font-size: 11px !important;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 376px) {
+    .carrito-position{
+        position: absolute;
+        top: 22% !important;
+        right: 32% !important;
+        z-index: 2;
+    }
+}
+
+
+@media screen and (min-width: 428px) and (max-width: 429px) {
+    .carrito-position{
+        position: absolute;
+        top: 18% !important;
+        right: 32% !important;
+        z-index: 2;
+    }
+}
+
+@media screen and (min-width: 412px) and (max-width: 413px) {
+    .carrito-position{
+        position: absolute;
+        top: 17% !important;
+        right: 34% !important;
+        z-index: 2;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 801px) {
+    .carrito-position{
+        position: absolute;
+        top: 13% !important;
+        right: 10% !important;
+        z-index: 2;
+    }
+
+    .contenedor-compra {
+        padding: 10px;
+        padding-top: 30px;
+    }
+    .canasta{
+        width:140%;
+        height: fit-content;
+        margin-bottom: 10%;
+        font-size: 14px;
+    }
+    
+    .canasta-labels ul li{
+        margin-right: 19px;
+    }
+
+    .detalles-productos ul{
+        margin-right: 30px; 
+        margin-top: 10px;
+    }    
+    
+    .cantidadProducto{
+        width: 50%;
+        height: 4vh;
+    }
+
+    aside{
+        padding-left: 11rem;
+        margin-bottom: 13%;
+    }
+    
+    .contenedor-aside{
+        width: 100%;
+    }
+    
+    .summary-delivery-selection{
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 460px) and (max-width: 1132px) {
+    /*  inicio responsive mobile & tablet*/
+    .search-bar{
+        margin-top: 5rem;
+    }
+    .imagenes-Carrusel{
+        height: 40em;
+    }
+    .carrito-position{
+        position: absolute;
+        top: 13% !important;
+        z-index: 2;
+    }
+
+
+    .contenedor-compra {
+        padding: 10px;
+        padding-top: 30px;
+    }
+    .canasta{
+        width:140%;
+        height: fit-content;
+        margin-bottom: 6%;
+        font-size: 14px;
+    }
+    
+    .canasta-labels ul li{
+        margin-right: 19px;
+    }
+
+    .detalles-productos ul{
+        margin-right: 30px; 
+        margin-top: 10px;
+    }    
+    
+    .cantidadProducto{
+        width: 50%;
+        height: 4vh;
+    }
+
+    aside{
+        padding-left: 11rem;
+    }
+    
+    .contenedor-aside{
+        width: 100%;
+    }
+    
+    .summary-delivery-selection{
+        width: 100%;
+    }
+        /* fin responsive tienda */
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="shortcut icon" href="Assets/Images/Cat-and-Dog.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./Assets/Style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Poppins&display=swap" rel="stylesheet">
+    <title>Paraiso Animal</title>
+</head>
+<body>
+    <div id="app">
+        <!-- Aquí empieza el NavBar -->
+        <header>
+            <nav class="navbar bg-white justify-content-center">
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link ancor-nav" href="./index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link ancor-nav" href="./juguetes.html">Juguetes</a></li>
+                    <li class="nav-item"><a class="nav-link logo" href="./index.html"><div class="wrapper bg-white"><img src="./Assets/Images/Cat-and-Dog.svg"></div></a></li>
+                    <li class="nav-item"><a class="nav-link ancor-nav" href="./farmacia.html">Farmacia</a></li>
+                    <li class="nav-item"><a class="nav-link ancor-nav" href="./contactos.html">Contactenos</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Aqui Empieza el Main -->
+        <main>
+            <div class="contact_form">
+                <div class="formulario">      
+                    <h1 class="formulario-titulo">Contactanos</h1>
+                    <h3>Escríbenos y en breve nos pondremos en contacto contigo</h3>
+                    <form action="submeter-formulario.php" method="post" id="form-contacto">
+                        <p>
+                            <label for="nombre" class="colocar_nombre">Nombre
+                                <span class="obligatorio">*</span>
+                            </label>
+                            <input type="text" name="introducir_nombre" id="nombre" required="obligatorio" placeholder="Escribe tu nombre">
+                        </p>
+                        <p>
+                            <label for="apellido" class="colocar_apellido">Apellido
+                                <span class="obligatorio">*</span>
+                            </label>
+                            <input type="text" name="introducir_apellido" id="apellido" required="obligatorio" placeholder="Escribe tu apellido">
+                        </p>
+                        <label for="mascota" class="colocar_mascota">¿Que tipo de animal tiene de mascota?
+                            <span class="obligatorio">*</span>
+                        </label>
+                        <p id="checkboxes">
+                            <label for="perro">
+                                <input type="radio" name="introducir_mascota" class="input-Mascotas" id="perro" required="obligatorio">
+                                Perro
+                            </label>
+                            <label for="gato">
+                                <input type="radio" name="introducir_mascota" class="input-Mascotas" id="gato" required="obligatorio">
+                                Gato
+                            </label>
+                            <label for="ambos">
+                                <input type="radio" name="introducir_mascota" class="input-Mascotas" id="ambos" required="obligatorio">
+                                Ambos
+                            </label>
+                            
+                        </p>
+                        <p>
+                            <label for="telefone" class="colocar_telefono">Teléfono
+                                <span class="obligatorio">*</span>
+                            </label>
+                            <input type="tel" name="introducir_telefono" id="telefono" placeholder="Escribe tu teléfono">
+                        </p>    
+                        <p>
+                            <label for="asunto" class="colocar_asunto">Asunto
+                                <span class="obligatorio">*</span>
+                            </label>
+                            <input type="text" name="introducir_asunto" id="assunto" required="obligatorio" placeholder="Escribe un asunto">
+                        </p>
+                        <p>
+                            <label for="mensaje" class="colocar_mensaje">Mensaje
+                                <span class="obligatorio">*</span>
+                            </label>                     
+                                <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" required="obligatorio" placeholder="Deja aquí tu comentario..."></textarea> 
+                        </p>
+                        <button type="submit" name="enviar_formulario" id="enviar"><p class="enviar">Enviar</p></button>
+                        <p class="aviso">
+                            <span class="obligatorio"> * </span>los campos son obligatorios.
+                        </p>          
+                    </form>
+                </div>  
+            </div>
+            <div class="modal-container">
+                <div class="m m-close">
+                    <p class="close">X</p>
+                    <img src="./assets/211652_close_icon.svg" width="4rem" alt="">
+                    <div class="modal-texto">
+                        <h4>Su respuesta se ha enviado correctamente. Gracias por escribirnos</h4>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+<!-- Aqui Empieza El Footer -->
+        <footer class="text-center text-lg-start text-white " style="background-color: #F5A09D">
+            <!-- Grid container -->
+            <div class="container p-4 pb-0">
+                <!-- Section: Links -->
+                <!--Grid row-->
+                <div class="row">
+                    <!-- Grid column Horarios de Atención-->
+                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h4 class="text-uppercase mb-4">Horarios de Atención</h4>
+                
+                        <table class="table text-center text-white">
+                        <tbody class="font-weight-normal">
+                            <tr>
+                            <td>Lun - Vie:</td>
+                            <td>09:00 - 21:00</td>
+                            </tr>
+                            <tr>
+                            <td>Sábado</td>
+                            <td>10:00 - 14:00</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>        
+                    <!-- Grid column Contacto-->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h4 class="text-uppercase mb-4 font-weight-bold">Contacto</h4>
+                    <a href="https://www.google.com/maps/place/R%C3%ADo+de+Janeiro+300,+C1405CCB+CABA/@-34.6117966,-58.4304098,17z/data=!4m6!3m5!1s0x95bcca429815227f:0x5d302e497c2cda87!8m2!3d-34.6117966!4d-58.4304098!16s%2Fg%2F11c1zry9gr"><i class="fas fa-map mr-3 enlaces"></i> Argentina, CABA, Río de Janeiro 300
+                    </a>
+                    <a href="mailto:Paraiso-Animal@gmail.com"><i class="fas fa-envelope mr-3 enlaces"></i> Paraiso-Animal@gmail.com</a>
+                    <br>
+                    <a href="tel:+ 54 011 567 88"><i class="fas fa-phone mr-3 enlaces"></i> + 54 011 567 88</a>
+                    </div>
+                    <!-- Grid column Redes sociales-->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold">Seguinos en redes:</h5>
+                    <!-- Facebook -->
+                    <a class="btn btn-outline-light btn-floating m-1 botones" href="https://www.facebook.com/" role="button"><img class="LogosFooter" src="./Assets/Images/Facebook.png" alt="Faceboock Logo"></a>
+                    <!-- Instagram -->
+                    <a class="btn btn-outline-light btn-floating m-1 botones" href="https://www.instagram.com/" role="button"><img class="LogosFooter" src="./Assets/Images/IG.png" alt="Instagram Logo"></a>
+                    <!-- Whatsapp -->
+                    <a class="btn btn-outline-light btn-floating m-1 botones" href="https://web.whatsapp.com/" role="button"><img class="LogosFooter" src="./Assets/Images/Whatsapp.png" alt="Whatsapp Logo"></a>
+                    </div>
+                </div>
+                <!--Grid row-->
+            </div>
+            <!-- Grid container -->
+
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2020 Copyright:<a class="text-white">Grupo 3 - Cohort 37/38</a>
+            </div>
+        </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./js/contacto.js"></script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="shortcut icon" href="./Assets/Images/Cat-and-Dog.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./Assets/Style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Poppins&display=swap" rel="stylesheet">
+    <title>Paraiso Animal</title>
+</head>
+<body>
+    <div id="app">
+        <!-- Aquí empieza el NavBar -->
+        <header>
+            <nav class="navbar bg-white justify-content-center">
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link ancor-nav" href="./index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link ancor-nav" href="./juguetes.html">Juguetes</a></li>
+                    <li class="nav-item"><a class="nav-link logo" href="./index.html"><div class="wrapper bg-white"><img src="./Assets/Images/Cat-and-Dog.svg"></div></a></li>
+                    <li class="nav-item"><a class="nav-link ancor-nav" href="./farmacia.html">Farmacia</a></li>
+                    <li class="nav-item"><a class="nav-link ancor-nav" href="./contactos.html">Contactenos</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Aqui Empieza el Carusel -->
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" data-bs-interval="7000" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" data-bs-interval="7000" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" data-bs-interval="7000" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" data-bs-interval="7000" aria-label="Slide 4"></button>
+
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./Assets/Images/Carrusel-Bienvenida.png" class="imagenes-Carrusel d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="./Assets/Images/Carrusel-Productos.png" class="imagenes-Carrusel d-block w-100" alt="...">
+
+                </div>
+                <div class="carousel-item">
+                    <img src="./Assets/Images/Carrusel-Promociones.png" class="imagenes-Carrusel d-block w-100" alt="...">
+
+                </div>
+                <div class="carousel-item">
+                    <img src="./Assets/Images/Carrusel-Convenio.png" class="imagenes-Carrusel d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+
+        <!-- Aqui Empieza el Main -->
+        <main>
+            <div class="container py-3">    
+                    <div class="container"> <!-- inicio cartas inicio descriptivas -->
+                        <div class="card float-right"> <!-- carta de promociones -->
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <img class="img-carta d-block w-100" src="./Assets/Images/carta-promociones.jpg" alt="">
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="card-block">
+                                        <h4 class="card-title">PROMOCIONES Y DESCUENTOS</h4>
+                                        <p>Presentando recetas de las veterinarias "Vida Animal" y "Veterinaria Almagro" tenés un 20% de descuento en el producto que necesitas. 🏥</p>
+                                        <p>Comprando en nuestra tienda online por un monto mayor a $5000 te lo enviamos gratis a tu casa dentro de CABA y por compras mayores a $8000 el envio es gratis a todo GBA! &#128666;	</p>
+                                        <p>Comprando con tu tarjeta de débito Banco Santander &#128179; los martes tenés un 15% de descuento en la tienda online y un 20% de descuento en la tienda física los miércoles con tu tarjeta débito del BBVA.
+                                    </p>
+                                        <br>
+                                        <a href="./farmacia.html" class="btn btn-warning float-right btn-lg">Comenzá tu compra</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- fin carta -->
+                        <div class="card float-left"> <!-- carta de nuestra historia -->
+                            <div class="row ">
+                                <div class="col-sm-7">
+                                    <div class="card-block">
+                                        <h4 class="card-title">NUESTRA HISTORIA</h4>
+                                        <p>Somos un emprendimiento familiar que surgió hace 20 años gracias a nuestra perrita Dina.
+                                            Ella era una perrita super juguetona y enérgica pero no encontrabamos locales en el barrio donde conseguir productos para jugar con ella entonces decidimos emprender por nuestra cuenta lo que le hacia falta al barrio. Allí nace "Paraiso Animal" con un constante desarrollo y prestigio. Nos encargamos de buscar los juguetes y productos de bienestar de la mayor calidad y variedad para tu mascota y tu bolsillo.  
+                                        </p>
+                                        <p>Con el prestigio y la experiencia en el mercado te invitamos a visitar nuestra tienda online o física para encontrar todo aquello que necesitas para tu mejor amigo animal &#x1F436; &#x1F431; &#x1F430;</p>
+                                        <a href="./farmacia.html" class="btn btn-warning float-right btn-lg">Visitá nuestra tienda</a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 c ">
+                                    <img class="img-carta d-block w-100" src="./Assets/Images/Carta-Nosotros.jpg" alt="">
+                                </div>
+                            </div>
+                        </div> <!-- fin carta nuestra historia -->
+                                    <!-- Aqui Empieza el mapa -->
+                <div class="maps">
+                <h2>Nuestra ubicación:</h2>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.723531081976!2d-58.429991396402485!3d-34.61115192248155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca429815227f%3A0x5d302e497c2cda87!2sR%C3%ADo%20de%20Janeiro%20300%2C%20C1405CCB%20CABA!5e0!3m2!1ses!2sar!4v1668883597525!5m2!1ses!2sar"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>        </main>
+                </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Aqui Empieza El Footer -->
+        <footer class="text-center text-lg-start text-white " style="background-color: #F5A09D">
+            <!-- Grid container -->
+            <div class="container p-4 pb-0">
+                <!-- Section: Links -->
+                <!--Grid row-->
+                <div class="row">
+                    <!-- Grid column Horarios de Atención-->
+                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h4 class="text-uppercase mb-4">Horarios de Atención</h4>
+                
+                        <table class="table text-center text-white">
+                        <tbody class="font-weight-normal">
+                            <tr>
+                            <td>Lun - Vie:</td>
+                            <td>09:00 - 21:00</td>
+                            </tr>
+                            <tr>
+                            <td>Sábado</td>
+                            <td>10:00 - 14:00</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>        
+                    <!-- Grid column Contacto-->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h4 class="text-uppercase mb-4 font-weight-bold">Contacto</h4>
+                    <a href="https://www.google.com/maps/place/R%C3%ADo+de+Janeiro+300,+C1405CCB+CABA/@-34.6117966,-58.4304098,17z/data=!4m6!3m5!1s0x95bcca429815227f:0x5d302e497c2cda87!8m2!3d-34.6117966!4d-58.4304098!16s%2Fg%2F11c1zry9gr"><i class="fas fa-map mr-3 enlaces"></i> Argentina, CABA, Río de Janeiro 300
+                    </a>
+                    <a href="mailto:Paraiso-Animal@gmail.com"><i class="fas fa-envelope mr-3 enlaces"></i> Paraiso-Animal@gmail.com</a>
+                    <br>
+                    <a href="tel:+ 54 011 567 88"><i class="fas fa-phone mr-3 enlaces"></i> + 54 011 567 88</a>
+                    </div>
+                    <!-- Grid column Redes sociales-->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold">Seguinos en redes:</h5>
+                    <!-- Facebook -->
+                    <a class="btn btn-outline-light btn-floating m-1 botones" href="https://www.facebook.com/" role="button"><img class="LogosFooter" src="./Assets/Images/Facebook.png" alt="Faceboock Logo"></a>
+                    <!-- Instagram -->
+                    <a class="btn btn-outline-light btn-floating m-1 botones" href="https://www.instagram.com/" role="button"><img class="LogosFooter" src="./Assets/Images/IG.png" alt="Instagram Logo"></a>
+                    <!-- Whatsapp -->
+                    <a class="btn btn-outline-light btn-floating m-1 botones" href="https://web.whatsapp.com/" role="button"><img class="LogosFooter" src="./Assets/Images/Whatsapp.png" alt="Whatsapp Logo"></a>
+                    </div>
+                </div>
+                <!--Grid row-->
+            </div>
+            <!-- Grid container -->
+
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+                © 2020 Copyright:<a class="text-white">Grupo 3 - Cohort 37/38</a>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</body>
+</html>
