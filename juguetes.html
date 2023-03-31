@@ -67,7 +67,7 @@
             <!-- fin search y filter bars -->
             <!-- inicio print cards -->
             <div class="cards d-flex justify-content-center flex-wrap">
-                <div class="card cards-producto" style="width: 18rem;" v-for="juguete of juguetesFiltrados">
+                <div class="card cards-producto" v-for="juguete of juguetesFiltrados">
                     <img :src="juguete.imagen" class="card-img-top" :alt="juguete.nombre">
                     <div class="card-body">
                         <h5 class="card-title">{{juguete.producto}}</h5>
