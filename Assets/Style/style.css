@@ -162,19 +162,24 @@ iframe{
 
 /* Inicio Footer */
 
+.contenedor-sociales{
+    width: 10rem !important;
+}
+
 .LogosFooter{
-    width: 1rem;
-    height: 1rem;
+    width: 5rem !important;
+    height: 2rem !important;
 }
-.LogosFooter>img{
-    justify-items: center;
-}
+
 .botones{
-    border-radius: 40%;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 45%;
 }
 .enlaces{
     color: white !important;
 }
+
 footer{
     font-family: 'Poppins', sans-serif;
     margin-top: 3rem;
@@ -370,6 +375,7 @@ body {
 
 /* estilo cards */
 .cards-producto {
+    background-color: #f5e9e9;
     width: 25%;
     padding: 0.5rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -379,7 +385,7 @@ body {
 
 .card-img-top{
     object-fit: cover;
-    max-height: 50%;
+    height: 50%;
     border-radius: 20px;
 }
 
@@ -651,6 +657,16 @@ aside{
     .summary-delivery-selection{
         width: 100%;
     }
+
+    .cards-producto{
+        width: 100%;
+        padding: 2rem;
+    }
+
+    .contenedor-sociales {
+        width: 21rem !important;
+        margin-bottom: 2rem;
+    }
 }
 
 @media screen and (min-width: 393px) and (max-width: 394px) {
@@ -802,6 +818,16 @@ aside{
     
     .summary-delivery-selection{
         width: 100%;
+    }
+
+    .descripcion{
+        height: 10vh !important;
+    }
+
+    .cards-producto{
+        width: 40%;
+        height: 60vh;
+        padding: 2rem;
     }
         /* fin responsive tienda */
 }
