@@ -15,20 +15,20 @@ const app = createApp({
         fetch('https://mindhub-xj03.onrender.com/api/petshop')
             .then(response => response.json())
             .then(data => {
-                this.obtenerJuguetes(data.response)
+                this.obtenerJuguetes(data)
             })
             .catch(err => console.log(err))
             this.carrito = JSON.parse(localStorage.getItem('carrito'))
             if (!this.carrito) {
                 this.carrito = []
             } else {
-                this.carrito.forEach(medicamento => this.total += medicamento.unidades*medicamento.precio)
+                this.carrito.forEach(juguetes => this.total += juguetes.unidades*juguetes.precio)
             }
     },
     methods: {
         obtenerJuguetes(data) {
-            this.juguetes = data.filter(elemento => elemento.tipo === "Juguete")
-            this.juguetes = this.juguetes.sort((a, b) => a.nombre.localeCompare(b.nombre))
+            this.juguetes = data.filter(elemento => elemento.categoria === "jugueteria")
+            this.juguetes = this.juguetes.sort((a, b) => a.producto.localeCompare(b.producto))
             this.juguetesFiltrados = this.juguetes
             console.log(this.juguetesFiltrados)
         },
@@ -36,7 +36,7 @@ const app = createApp({
             console.log(this.textoInput)
             if (this.textoInput) {
                 this.juguetesFiltrados = this.juguetes.filter(Juguete => {
-                    return Juguete.nombre.toLowerCase().trim().includes(this.textoInput.toLowerCase().trim())
+                    return Juguete.producto.toLowerCase().trim().includes(this.textoInput.toLowerCase().trim())
                 })
             } else {
                 this.juguetesFiltrados = this.juguetes

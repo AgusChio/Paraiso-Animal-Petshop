@@ -34,7 +34,7 @@
             <div class="dropdown-menu">
                 <div class="card menu-item" style="width: 18rem;" v-for="juguete of carrito">
                     <div class="card-body">
-                        <h5 class="card-title">{{juguete.nombre}}</h5>
+                        <h5 class="card-title">{{juguete.producto}}</h5>
                         <p>Precio: ${{juguete.precio}}</p>
                         <p>Unidades: {{juguete.unidades}}
                             <button class="btn border border-dark m-2" @click="agregarAlCarrito(juguete)">+</button>
@@ -70,9 +70,10 @@
                 <div class="card cards-producto" style="width: 18rem;" v-for="juguete of juguetesFiltrados">
                     <img :src="juguete.imagen" class="card-img-top" :alt="juguete.nombre">
                     <div class="card-body">
-                        <h5 class="card-title">{{juguete.nombre}}</h5>
+                        <h5 class="card-title">{{juguete.producto}}</h5>
                         <p>Precio: ${{juguete.precio}}</p>
-                        <p class="text-danger fw-bold text-decoration-underline" v-if="juguete.stock <=5">Ultimas unidades!!!</p>
+                        <p class="descripcion">{{juguete.descripcion}}</p>
+                        <p class="text-danger fw-bold text-decoration-underline" v-if="juguete.cantidad <=5">Ultimas unidades!!!</p>
                         <button class="btn-tienda btn btn-warning btn-lg" @click="agregarAlCarrito(juguete)">Añadir al carrito</button>
                     </div>
                 </div>

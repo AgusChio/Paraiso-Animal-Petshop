@@ -370,17 +370,22 @@ body {
 
 /* estilo cards */
 .cards-producto {
-    width: 18rem;
+    width: 25%;
     padding: 0.5rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    margin: 2rem;
-    height: 29rem;
+    margin: 1.5rem;
+    height: 40rem;
 }
 
 .card-img-top{
     object-fit: cover;
     max-height: 50%;
     border-radius: 20px;
+}
+
+.descripcion{
+    overflow: auto;
+    height: 15vh;
 }
 
 /* estilo h1 */
@@ -396,9 +401,9 @@ body {
     font-size: 1rem;
     font-weight: bold;
     background-color:rgb(240,162,79);
-    position: absolute;
+    /* position: absolute;
     bottom: 10px;
-    left: 10px;
+    left: 10px; */
 }
 
 /* estilo searchbar y filtro */

@@ -66,13 +66,14 @@
                     </select>
                     <!-- fin search y filter bars -->
                     <!-- inicio print cards -->
-                    <div class="cards d-flex justify-content-center flex-wrap">
-                        <div class="card cards-producto" style="width: 18rem;" v-for="medicamento of medicamentosFiltrados">
-                            <img :src="medicamento.imagen" class="card-img-top" :alt="medicamento.nombre">
+                    <div class="cards d-flex justify-content-center flex-wrap w-100">
+                        <div class="card cards-producto" v-for="medicamento of medicamentosFiltrados">
+                            <img :src="medicamento.imagen" class="card-img-top" :alt="medicamento.producto">
                             <div class="card-body">
-                                <h5 class="card-title">{{medicamento.nombre}}</h5>
+                                <h5 class="card-title">{{medicamento.producto}}</h5>
                                 <p>Precio: ${{medicamento.precio}}</p>
-                                <p class="text-danger fw-bold text-decoration-underline" v-if="medicamento.stock <=5">Ultimas unidades!!!</p>
+                                <p class="descripcion">{{medicamento.descripcion}}</p>
+                                <p class="text-danger fw-bold text-decoration-underline" v-if="medicamento.disponibles <=5">Ultimas unidades!!!</p>
                                 <button class="btn-tienda btn btn-warning btn-lg" @click="agregarAlCarrito(medicamento)">Añadir al carrito</button>
                             </div>
                         </div>

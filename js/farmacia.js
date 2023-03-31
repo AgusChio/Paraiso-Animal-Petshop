@@ -15,7 +15,8 @@ const app = createApp({
         fetch('https://mindhub-xj03.onrender.com/api/petshop')
             .then(response => response.json())
             .then(data => {
-                this.obtenerMedicamentos(data.response)
+                console.log(data)
+                this.obtenerMedicamentos(data)
             })
             .catch(err => console.log(err))
         this.carrito = JSON.parse(localStorage.getItem('carrito'))
@@ -27,8 +28,7 @@ const app = createApp({
     },
     methods: {
         obtenerMedicamentos(data) {
-            this.medicamentos = data.filter(elemento => elemento.tipo === "Medicamento")
-            this.medicamentos = this.medicamentos.sort((a, b) => a.nombre.localeCompare(b.nombre))
+            this.medicamentos = data.filter(elemento => elemento.categoria === "farmacia")
             this.medicamentosFiltrados = this.medicamentos
             console.log(this.medicamentosFiltrados)
         },
@@ -36,7 +36,7 @@ const app = createApp({
             console.log(this.textoInput)
             if (this.textoInput) {
                 this.medicamentosFiltrados = this.medicamentos.filter(medicamento => {
-                    return medicamento.nombre.toLowerCase().trim().includes(this.textoInput.toLowerCase().trim())
+                    return medicamento.producto.toLowerCase().trim().includes(this.textoInput.toLowerCase().trim())
                 })
                 /* this.medicamentosFiltrados = this.medicamentos.filter(medicamento => medicamento.stock > 5) */
             } else {
@@ -75,7 +75,7 @@ const app = createApp({
             let ordenarPor;
             switch (this.seleccionada) {
                 case 'A-Z':
-                    this.medicamentosFiltrados = this.medicamentosFiltrados.sort((a, b) => a.nombre.localeCompare(b.nombre))
+                    this.medicamentosFiltrados = this.medicamentosFiltrados.sort((a, b) => a.producto.localeCompare(b.producto))
                     break;
                 case 'Mayor precio':
                     this.medicamentosFiltrados = this.medicamentosFiltrados.sort((a, b) => b.precio - a.precio)
