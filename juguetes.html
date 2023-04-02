@@ -12,8 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Poppins&display=swap" rel="stylesheet">
     <title>Paraiso Animal-Juguetes</title>
 </head>
-<body id="app" class="d-flex flex-column" >
-        <!-- Aquí empieza el NavBar -->
+<body class="d-flex flex-column" >
+    <div id="app">
+    <!-- Aquí empieza el NavBar -->
     <header>
         <nav class="navbar bg-white justify-content-center">
             <ul class="nav">
@@ -36,8 +37,9 @@
                     <div class="card-body">
                         <h5 class="card-title">{{juguete.producto}}</h5>
                         <p>Precio: ${{juguete.precio}}</p>
-                        <p>Unidades: {{juguete.unidades}}
+                        <p>
                             <button class="btn border border-dark m-2" @click="agregarAlCarrito(juguete)">+</button>
+                            Unidades: {{juguete.unidades}}
                             <button class="btn border border-dark m-2" @click="quitarUnidad(juguete)">-</button>
                         </p>
                         
@@ -141,6 +143,8 @@
                 © 2022 Copyright:<a class="text-white">Grupo 3 - Cohort 37/38</a>
             </div>
         </footer>
+    </div>
+
     
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>

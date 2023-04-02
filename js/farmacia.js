@@ -72,7 +72,6 @@ const app = createApp({
     },
     computed: {
         filtrar() {
-            let ordenarPor;
             switch (this.seleccionada) {
                 case 'A-Z':
                     this.medicamentosFiltrados = this.medicamentosFiltrados.sort((a, b) => a.producto.localeCompare(b.producto))

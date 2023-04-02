@@ -22,7 +22,8 @@ const app = createApp({
             if (!this.carrito) {
                 this.carrito = []
             } else {
-                this.carrito.forEach(juguetes => this.total += juguetes.unidades*juguetes.precio)
+                console.log(this.carrito)
+                this.carrito.forEach(juguetes => this.total += juguetes.cantidad*juguetes.precio)
             }
     },
     methods: {
@@ -30,7 +31,6 @@ const app = createApp({
             this.juguetes = data.filter(elemento => elemento.categoria === "jugueteria")
             this.juguetes = this.juguetes.sort((a, b) => a.producto.localeCompare(b.producto))
             this.juguetesFiltrados = this.juguetes
-            console.log(this.juguetesFiltrados)
         },
         filtrarjuguetes() {
             console.log(this.textoInput)
@@ -43,6 +43,7 @@ const app = createApp({
             }
         },
         agregarAlCarrito(Juguete) {
+            console.log(Juguete);
             if (this.carrito.find(jug => jug._id === Juguete._id)) {
                 const index = this.carrito.findIndex(jug => jug._id === Juguete._id)
                 if(this.carrito[index].unidades < this.carrito[index].stock)
@@ -55,7 +56,7 @@ const app = createApp({
             localStorage.setItem('carrito', JSON.stringify(this.carrito))
         },
         quitarUnidad(Juguete) {
-            const index = this.carrito.findIndex(med => med._id === Juguete._id)
+            const index = this.carrito.findIndex(jug => jug._id === Juguete._id)
             this.carrito[index].unidades -= 1
             if (!this.carrito[index].unidades) {
                 this.carrito.splice(index,1)
@@ -64,7 +65,7 @@ const app = createApp({
             localStorage.setItem('carrito', JSON.stringify(this.carrito))
         },
         quitarElemento(Juguete) {
-            const index = this.carrito.findIndex(med => med._id === Juguete._id)
+            const index = this.carrito.findIndex(jug => jug._id === Juguete._id)
             this.carrito.splice(index, 1)
             localStorage.setItem('carrito', JSON.stringify(this.carrito))
             this.total -= Juguete.precio * Juguete.unidades
@@ -75,7 +76,7 @@ const app = createApp({
             let ordenarPor;
             switch (this.seleccionada) {
                 case 'A-Z':
-                    this.juguetesFiltrados = this.juguetesFiltrados.sort((a, b) => a.nombre.localeCompare(b.nombre))
+                    this.juguetesFiltrados = this.juguetesFiltrados.sort((a, b) => a.producto.localeCompare(b.producto))
                     break;
                 case 'Mayor precio':
                     this.juguetesFiltrados = this.juguetesFiltrados.sort((a, b) => b.precio - a.precio)
@@ -90,10 +91,13 @@ const app = createApp({
         },
         cantTotal: function(){
             let cant = 0;
-            for(key in this.carrito){
-                cant = cant + this.carrito[key].unidades 
+            for (key in this.carrito) {
+                let jug = this.carrito[key];
+                if (jug && jug.unidades) {
+                    cant += jug.unidades;
+                }
             }
-            return cant
+            return cant;
         },
         carritoTotal: function(){
             let suma = 0;
