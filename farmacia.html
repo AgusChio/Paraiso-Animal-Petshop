@@ -44,7 +44,7 @@
                 <div class="dropdown-menu">
                     <div class="card menu-item" style="width: 18rem;" v-for="propiedad in carrito">
                         <div class="card-body">
-                            <h5 class="card-title">{{propiedad.producto}}</h5>
+                            <h5 class="card-title">{{propiedad.nombre}}</h5>
                             <p>Precio: ${{propiedad.precio}}</p>
                             <p>
                                 <button class="btn border border-dark m-2" @click="aumentarCantidad(propiedad.id)">+</button>
