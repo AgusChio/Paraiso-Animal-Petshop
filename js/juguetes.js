@@ -120,7 +120,7 @@ const app = createApp({
                     return juguetes.producto.toLowerCase().trim().includes(this.textoInput.toLowerCase().trim())
                 })
             } else {
-                this.articulosFiltrados = this.articulosFiltrados
+                this.articulosFiltrados = this.articulosTipoJuguetes
             }
         },
 	},
