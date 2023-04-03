@@ -2,106 +2,158 @@ const { createApp } = Vue
 
 const app = createApp({
     data() {
-        return {
-            medicamentos: [],
-            medicamentosFiltrados: [],
+		return {
+			articulos: [],
+			articulosFiltrados: [],
+			articulosBajoStock: [],
+			articulosTipoJuguetes: [],
+			articulosTipoMedicamentos: [],
+			tipos: [],
+			checked: [],
             textoInput: '',
             seleccionada: '',
-            carrito: [],
-            total: 0
-        }
-    },
-    created() {
-        fetch('https://mindhub-xj03.onrender.com/api/petshop')
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                this.obtenerMedicamentos(data)
-            })
-            .catch(err => console.log(err))
-        this.carrito = JSON.parse(localStorage.getItem('carrito'))
-        if (!this.carrito) {
-            this.carrito = []
-        } else {
-            this.carrito.forEach(medicamento => this.total += medicamento.unidades*medicamento.precio)
-        }
-    },
-    methods: {
-        obtenerMedicamentos(data) {
-            this.medicamentos = data.filter(elemento => elemento.categoria === "farmacia")
-            this.medicamentosFiltrados = this.medicamentos
-            console.log(this.medicamentosFiltrados)
-        },
-        filtrarMedicamentos() {
+			carrito: {},
+			nuevoId: 1,
+			total: 0,
+			cantidad: 0,
+		};
+	},
+	created() {
+		this.cargarDatos();
+	},
+	methods: {
+		cargarDatos() {
+			fetch("https://mindhub-xj03.onrender.com/api/petshop")
+				.then((respuesta) => respuesta.json())
+				.then((datos) => {
+					this.articulos = datos;
+					this.articulos.forEach((a) => this.agregarNuevoId(a));
+					this.extraerTipos();
+					this.filtrarArticulosPorTipos();
+					this.articulosFiltrados = [...this.articulosTipoMedicamentos];
+					this.buscarArticulosBajoStock();
+					this.consultarLocalStorage();
+				})
+				.catch((e) => console.log(e));
+		},
+		extraerTipos() {
+			let fn = (e) => e.categoria;
+			this.tipos = [...new Set(this.articulos.filter(fn).map(fn))];
+		},
+		buscarArticulosBajoStock() {
+			this.articulosBajoStock = this.articulos.filter((a) => a.stock < 5);
+		},
+		agregarNuevoId(articulo) {
+			articulo.nuevoId = this.nuevoId;
+			this.nuevoId++;
+		},
+		buscarArticulo(id) {
+			return this.articulos.find((a) => a.nuevoId === id);
+		},
+		agregarAlCarrito(id) {
+			let articulo = this.buscarArticulo(id);
+            console.log(articulo);
+			if (this.carrito.hasOwnProperty(articulo.nuevoId)) {
+				this.aumentarCantidad(articulo.nuevoId);
+			} else {
+				let e = {
+					id: articulo.nuevoId,
+					nombre: articulo.producto,
+					cantidad: 1,
+					precio: articulo.precio,
+				};
+				Swal.fire("Se ha agregado al carrito exitosamente!");
+				this.carrito[e.id] = { ...e };
+				this.guardarEnLocalStorage();
+			}
+		},
+		aumentarCantidad(id) {
+			let articulo = this.buscarArticulo(id);
+			if (this.carrito[id].cantidad === articulo.disponibles) {
+				Swal.fire("Usted tiene toda las unidades que disponemos en el carrito en este momento!");
+			} else {
+				this.carrito[id].cantidad++;
+				this.carrito[id].precio = articulo.precio * this.carrito[id].cantidad;
+				this.guardarEnLocalStorage();
+			}
+		},
+		decrementarCantidad(id) {
+			let articulo = this.buscarArticulo(id);
+			if (this.carrito[id].cantidad === 1) {
+				this.eliminarDelCarrito(id);
+			} else {
+				this.carrito[id].cantidad--;
+				this.carrito[id].precio = articulo.precio * this.carrito[id].cantidad;
+			}
+			this.guardarEnLocalStorage();
+		},
+		eliminarDelCarrito(id) {
+			delete this.carrito[id];
+			this.guardarEnLocalStorage();
+			Swal.fire("Se ha eliminado dicho elemento del carrito");
+		},
+		vaciarCarrito() {
+			this.carrito = {};
+			this.guardarEnLocalStorage();
+			Swal.fire("Se han eliminado todos los articulos del carrito!");
+		},
+		consultarLocalStorage() {
+			if (localStorage.getItem("carrito")) {
+				this.carrito = JSON.parse(localStorage.getItem("carrito"));
+			}
+		},
+		guardarEnLocalStorage() {
+			localStorage.setItem("carrito", JSON.stringify(this.carrito));
+		},
+		filtrarArticulosPorTipos() {
+			this.articulosTipoJuguetes = this.articulos.filter(
+				(a) => a.categoria == this.tipos[1]
+			);
+			this.articulosTipoMedicamentos = this.articulos.filter(
+				(a) => a.categoria == this.tipos[0]
+			);
+		},
+        BuscadorMedicamentos() {
             console.log(this.textoInput)
             if (this.textoInput) {
-                this.medicamentosFiltrados = this.medicamentos.filter(medicamento => {
-                    return medicamento.producto.toLowerCase().trim().includes(this.textoInput.toLowerCase().trim())
+                this.articulosFiltrados = this.articulos.filter(medicamentos => {
+                    return medicamentos.producto.toLowerCase().trim().includes(this.textoInput.toLowerCase().trim())
                 })
-                /* this.medicamentosFiltrados = this.medicamentos.filter(medicamento => medicamento.stock > 5) */
             } else {
-                this.medicamentosFiltrados = this.medicamentos
+                this.articulosFiltrados = this.articulosFiltrados
             }
         },
-        agregarAlCarrito(medicamento) {
-            if (this.carrito.find(med => med._id === medicamento._id)) {
-                const index = this.carrito.findIndex(med => med._id === medicamento._id)
-                if(this.carrito[index].unidades < this.carrito[index].stock)
-                    this.carrito[index].unidades += 1
-            } else {    
-                medicamento.unidades = 1
-                this.carrito.push(medicamento)
-            }
-            this.total += medicamento.precio
-            localStorage.setItem('carrito', JSON.stringify(this.carrito))
-        },
-        quitarUnidad(medicamento) {
-            const index = this.carrito.findIndex(med => med._id === medicamento._id)
-            this.carrito[index].unidades -= 1
-            if (!this.carrito[index].unidades) {
-                this.carrito.splice(index,1)
-            }
-            this.total -= medicamento.precio
-            localStorage.setItem('carrito', JSON.stringify(this.carrito))
-        },
-        quitarElemento(medicamento) {
-            const index = this.carrito.findIndex(med => med._id === medicamento._id)
-            this.carrito.splice(index, 1)
-            localStorage.setItem('carrito', JSON.stringify(this.carrito))
-        }
-    },
-    computed: {
-        filtrar() {
+	},
+	computed: {
+		filtrar() {
             switch (this.seleccionada) {
                 case 'A-Z':
-                    this.medicamentosFiltrados = this.medicamentosFiltrados.sort((a, b) => a.producto.localeCompare(b.producto))
+                    this.articulosFiltrados = this.articulosFiltrados.sort((a, b) => a.producto.localeCompare(b.producto))
                     break;
                 case 'Mayor precio':
-                    this.medicamentosFiltrados = this.medicamentosFiltrados.sort((a, b) => b.precio - a.precio)
+                    this.articulosFiltrados = this.articulosFiltrados.sort((a, b) => b.precio - a.precio)
                     break;
                 case 'Menor precio':
-                    this.medicamentosFiltrados = this.medicamentosFiltrados.sort((a, b) => a.precio - b.precio)
+                    this.articulosFiltrados = this.articulosFiltrados.sort((a, b) => a.precio - b.precio)
                     break;
                 default:
-                    this.medicamentosFiltrados = this.medicamentosFiltrados
+                    this.articulosFiltrados = this.articulosFiltrados
             }
             
         },
-        cantTotal: function(){
-            let cant = 0;
-            for(key in this.carrito){
-                cant = cant + this.carrito[key].unidades 
-            }
-            return cant
-        },
-        carritoTotal: function(){
-            let suma = 0;
-            for(key in this.carrito){
-                suma = suma +(this.carrito[key].unidades * this.carrito[key].precio)
-            }
-            return suma
-        },
-    }
+		calcularTotal() {
+			this.total = Object.values(this.carrito).reduce(
+				(acc, { precio }) => acc + precio,
+				0
+			);
+		},
+		calcularCantidad() {
+			this.cantidad = Object.values(this.carrito).reduce(
+				(acc, { cantidad }) => acc + cantidad,
+				0
+			);
+		},
+	},
 })
 
 app.mount('#app')

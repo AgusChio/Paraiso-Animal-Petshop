@@ -9,7 +9,8 @@ body {
     height: 100%;
     width: 100%; 
     background-image: url(../Images/fondo.webp);
-    background-size: contain;
+    background-size: cover;
+    background-position: center;
 }
 
 /* Navbar */
@@ -351,20 +352,29 @@ body {
     z-index: 2;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
 .finalizarCompra {
     position: relative;
     background-color: #F0A24F;
     left: 65px;
 }
+
+.finalizarCompra:hover {
+    background-color: #f27874;
+    color: white;
+}
+
 .quitarElemento {
     position: relative;
     left: 65px;
 }
+
 .detalles-productos {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    border-bottom: #f35e59 dashed 2px;
 }
+
 .btn-carrito{    
     font-family: 'Fjalla One', sans-serif !important;
     font-size: 1.5rem;
@@ -407,9 +417,6 @@ body {
     font-size: 1rem;
     font-weight: bold;
     background-color:rgb(240,162,79);
-    /* position: absolute;
-    bottom: 10px;
-    left: 10px; */
 }
 
 /* estilo searchbar y filtro */
@@ -467,10 +474,10 @@ body {
 .detalles-productos ul li{
     display: inline;
     text-align: center;
-    height: 10vh;
+    height: 5vh;
     width: 15%;
     align-content: center;
-
+    margin-top: 1rem;
 }
 
 .cantidadProducto{
@@ -481,7 +488,8 @@ body {
 .contenedor-remover{
     display: flex;
     justify-content: flex-end;
-    padding: 5px;
+    width: 95%;
+    margin-bottom: 1rem;
 }
 
 .boton-remover{
@@ -489,6 +497,7 @@ body {
     border: none;
     background-color: #f27874;
     color: white;
+    border-radius: 0.5rem;
 }
 
 aside{
